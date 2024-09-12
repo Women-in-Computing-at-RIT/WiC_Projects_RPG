@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Characters/Basic Charakter Spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Basic_Grass_Biom_things.png" type="Texture" id=2]
+[ext_resource path="res://Player.gd" type="Script" id=3]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 245, 65 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 4
+
+[node name="BasicGrassBiomThings" type="Sprite" parent="."]
+position = Vector2( 81, 45 )
+texture = ExtResource( 2 )
