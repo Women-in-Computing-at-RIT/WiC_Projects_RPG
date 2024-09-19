@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 const ACCELERATION = 600
 const MAX_SPEED = 100
@@ -18,4 +18,6 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta) # accounts for frame rate
 
-	velocity = move_and_slide(velocity) # auto handles delta 
+	set_velocity(velocity)
+	move_and_slide()
+	velocity = velocity # auto handles delta 
