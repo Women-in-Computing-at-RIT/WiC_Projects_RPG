@@ -31,6 +31,6 @@ func check_box_collision(velocity: Vector2) -> void:
 	# print(velocity.x, velocity.y)
 	if abs(velocity.x) + abs(velocity.y) > BLOCK_MAX_VELOCITY:
 		return
-	var box = get_slide_collision(0).collider as Box
+	var box = get_slide_collision(0).collider as Moveable
 	if box:
 		box.push(PUSH_SPEED * velocity)

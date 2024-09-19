@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Box",
 "language": "GDScript",
 "path": "res://Box/Box.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Moveable",
+"language": "GDScript",
+"path": "res://Box/Chicken_house.gd"
 } ]
 _global_script_class_icons={
-"Box": ""
+"Box": "",
+"Moveable": ""
 }
 
 [application]
