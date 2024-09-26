@@ -8,6 +8,11 @@ const FRICTION = 800
 const PUSH_SPEED = 20
 const BLOCK_MAX_VELOCITY = 50
 
+# For animating the player
+onready var animationPlayer = $AnimationPlayer
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
+
 var velocity = Vector2.ZERO
 
 # Called every tic 
@@ -18,8 +23,13 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
+		print(input_vector)
+		animationTree.set("parameters/Idle/blend_position", input_vector)
+		animationTree.set("parameters/Run/blend_position", input_vector)
+		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta) # accounts for frame rate
 	else:
+		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta) # accounts for frame rate
 	
 	if get_slide_count() > 0: # Handle block collisions
@@ -31,6 +41,6 @@ func check_box_collision(velocity: Vector2) -> void:
 	# print(velocity.x, velocity.y)
 	if abs(velocity.x) + abs(velocity.y) > BLOCK_MAX_VELOCITY:
 		return
-	var box = get_slide_collision(0).collider as Box
+	var box = get_slide_collision(0).collider as Moveable
 	if box:
 		box.push(PUSH_SPEED * velocity)
