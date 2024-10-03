@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Water.png-6144d4cd46de9c4fa601dc683d75c574.stex"
+path="res://.import/widgetwic-Recovered-export_copy.png-20ce4ca5774e303c4d2938c99991261b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilesets/Water.png"
-dest_files=[ "res://.import/Water.png-6144d4cd46de9c4fa601dc683d75c574.stex" ]
+source_file="res://Sprites/Custom/widgetwic-Recovered-export_copy.png"
+dest_files=[ "res://.import/widgetwic-Recovered-export_copy.png-20ce4ca5774e303c4d2938c99991261b.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

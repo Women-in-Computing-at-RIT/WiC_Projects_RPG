@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/Custom/widgetwic-Recovered-export.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Custom/widgetwic-Recovered-export_copy.png" type="Texture" id=2]
+[ext_resource path="res://Player/Widget.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.5, 2 )
+
+[node name="Widget" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 5 )
+shape = SubResource( 2 )
