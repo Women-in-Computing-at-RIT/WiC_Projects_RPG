@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Box",
+"language": "GDScript",
+"path": "res://Box/Box.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Moveable",
+"language": "GDScript",
+"path": "res://Box/Chicken_house.gd"
+} ]
+_global_script_class_icons={
+"Box": "",
+"Moveable": ""
+}
+
 [application]
 
 config/name="WiC_Projects_RPG"

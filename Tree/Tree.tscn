@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Objects/Basic_Grass_Biom_things.png" type="Texture" id=1]
+[ext_resource path="res://Tree/Tree.gd" type="Script" id=2]
+[ext_resource path="res://Player/HurtBox.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 3.5 )
+
+[node name="Tree" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 9
+vframes = 5
+region_enabled = true
+region_rect = Rect2( 16, 0, 288, 160 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( 0, 11.5 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+
+[editable path="HurtBox"]
