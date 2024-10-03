@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Moveable",
 "language": "GDScript",
 "path": "res://Box/Chicken_house.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
 "Box": "",
-"Moveable": ""
+"Moveable": "",
+"Player": ""
 }
 
 [application]
