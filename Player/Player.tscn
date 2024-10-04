@@ -428,7 +428,6 @@ visible = false
 texture = ExtResource( 2 )
 hframes = 4
 vframes = 4
-frame = 1
 
 [node name="Action Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
