@@ -4,7 +4,7 @@
 [ext_resource path="res://Golisano/Keyword/Keyword.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 4 )
+extents = Vector2( 8, 8 )
 
 [node name="Keyword" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -17,5 +17,5 @@ vframes = 5
 frame = 28
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 8, 12 )
+position = Vector2( 8, 8 )
 shape = SubResource( 1 )
