@@ -348,7 +348,7 @@ parameters/Idle/blend_position = Vector2( -0.331023, 0.586207 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 8, 7 )
+position = Vector2( 8, 8 )
 enabled = true
 
 [connection signal="tween_completed" from="DeltaPos" to="." method="_on_DeltaPos_tween_completed"]

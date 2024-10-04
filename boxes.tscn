@@ -50,7 +50,13 @@ tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 1, 65539, 0, 1, 65540, 0, 1, 65
 [node name="YSort" type="YSort" parent="."]
 
 [node name="GridPlayer" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 125, 122 )
+position = Vector2( 32, 64 )
 
-[node name="Keyword" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 62, 74 )
+[node name="left" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 48, 64 )
+
+[node name="middle" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 64, 64 )
+
+[node name="right" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 80, 64 )
