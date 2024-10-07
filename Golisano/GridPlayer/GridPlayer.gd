@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends AxisAlignedBody2D
 
 var animation_speed = 3
 var is_moving = false
@@ -12,7 +12,8 @@ onready var ray = $RayCast2D
 
 func _ready():
 	animationTree.active = true
-	position = position.snapped(Vector2.ONE * Properties.TILE_SIZE)
+	._ready()
+#	position = position.snapped(Vector2.ONE * Properties.TILE_SIZE)
 
 func _process(delta):
 	try_start_moving()
