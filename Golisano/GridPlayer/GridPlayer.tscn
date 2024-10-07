@@ -1,10 +1,7 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Golisano/GridPlayer/GridPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Basic Charakter Spritesheet.png" type="Texture" id=3]
-
-[sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 8, 8 )
 
 [sub_resource type="Animation" id=36]
 resource_name = "Axe Down"
@@ -318,11 +315,6 @@ hframes = 4
 vframes = 4
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 8, 8 )
-rotation = -1.5708
-shape = SubResource( 35 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Axe Down" = SubResource( 36 )
 "anims/Axe Left" = SubResource( 37 )
@@ -346,9 +338,5 @@ parameters/playback = SubResource( 62 )
 parameters/Axe/blend_position = Vector2( 0.407708, 0.25 )
 parameters/Idle/blend_position = Vector2( -0.331023, 0.586207 )
 parameters/Run/blend_position = Vector2( 0, 0 )
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 8, 8 )
-enabled = true
 
 [connection signal="tween_completed" from="DeltaPos" to="." method="_on_DeltaPos_tween_completed"]

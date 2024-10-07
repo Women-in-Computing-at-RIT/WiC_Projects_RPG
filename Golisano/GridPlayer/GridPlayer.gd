@@ -8,11 +8,11 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
-onready var ray = $RayCast2D
+#onready var ray = $RayCast2D
 
 func _ready():
 	animationTree.active = true
-	._ready()
+	property_list_changed_notify()
 #	position = position.snapped(Vector2.ONE * Properties.TILE_SIZE)
 
 func _process(delta):
@@ -56,52 +56,30 @@ func try_start_moving():
 
 # Determines whether an object can be pushed
 func is_object_pushable(obj: Object) -> bool:
-	return obj.get_class() == "KinematicBody2D"
+	return obj is AxisAlignedBody2D
 
 # Attempts to push all objects lined up in the direction of a motion vector
 func try_push(motion_vector: Vector2):
 	if not ray.is_colliding():
 		return
 		
-	var first = ray.get_collider()
-		
-	if not is_object_pushable(first):
+	if not is_object_pushable(ray.get_collider()):
 		return
 		
-	# Approach:
-	#  - Create a 'mobile' raycast that moves from object to object in a straight line (motion vec)
-	#  - If an unpushable object is encountered, pushing fails
-	#  - If the cast does not collide with anything after being moved, pushing succeeds
-	var qray = RayCast2D.new()
-	
-	# Re-use ray transform so the new raycast is positioned at the center of the object
-	qray.set_transform(ray.get_transform())
-	
-	qray.set_enabled(true)
-	qray.set_cast_to(motion_vector)
-	
-	first.add_child(qray)
-	qray.force_raycast_update()
+	var obj = ray.get_collider() as AxisAlignedBody2D
+	obj.cast_ray(motion_vector)
 	
 	# Objects to push
-	var objects = [first]
+	var objects = [obj]
 	
-	while (qray.is_colliding()):
-		var obj = qray.get_collider()
-		qray.get_parent().remove_child(qray)
-		
-		if is_object_pushable(obj):
-			objects.append(obj)
-		else:
-			# A non-pushable object is encountered - pushing cannot proceed
+	while (obj.is_ray_colliding()):
+	
+		var collider = obj.ray.get_collider()
+		if not is_object_pushable(collider):
 			return
-			
-		# Add the raycast to the current object
-		obj.add_child(qray)
-		qray.force_raycast_update()
-	
-	# Terminate the ray
-	qray.queue_free()
+		obj = collider as AxisAlignedBody2D
+		obj.cast_ray(motion_vector)
+		objects.append(obj)
 	
 	for i in range(objects.size() - 1, -1, -1):
 		move(objects[i], motion_vector)
@@ -117,8 +95,9 @@ func move(object: KinematicBody2D, motion_vector: Vector2) -> Tween:
 
 # Determines whether the player can move according to a motion vector
 func can_move(motion_vector: Vector2) -> bool:
-	ray.set_cast_to(motion_vector)
-	ray.force_raycast_update()
+	cast_ray(motion_vector)
+#	ray.set_cast_to(motion_vector)
+#	ray.force_raycast_update()
 	return not ray.is_colliding()
 
 # Start animating the player movement
