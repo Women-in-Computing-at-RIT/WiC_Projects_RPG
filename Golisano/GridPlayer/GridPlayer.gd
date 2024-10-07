@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-const TILE_SIZE = 16
-
 var animation_speed = 3
 var is_moving = false
 
@@ -14,7 +12,7 @@ onready var ray = $RayCast2D
 
 func _ready():
 	animationTree.active = true
-	position = position.snapped(Vector2.ONE * TILE_SIZE)
+	position = position.snapped(Vector2.ONE * Properties.TILE_SIZE)
 
 func _process(delta):
 	try_start_moving()
@@ -40,7 +38,7 @@ func try_start_moving():
 		return
 	
 	var input_vector = get_input_vector()
-	var motion_vector = input_vector * TILE_SIZE
+	var motion_vector = input_vector * Properties.TILE_SIZE
 	
 	if input_vector != Vector2.ZERO:
 		set_animation_running(input_vector)

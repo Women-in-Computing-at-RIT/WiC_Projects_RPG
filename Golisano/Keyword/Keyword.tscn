@@ -19,3 +19,9 @@ frame = 28
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8, 8 )
 shape = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 48.0
+margin_bottom = 15.0
+text = "sample"
+fit_content_height = true

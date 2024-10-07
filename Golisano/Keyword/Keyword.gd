@@ -1,9 +1,7 @@
 extends KinematicBody2D
 
-const TILE_SIZE = 16
-
 func _ready():
-	position = position.snapped(Vector2.ONE * TILE_SIZE)
+	position = position.snapped(Vector2.ONE * Properties.TILE_SIZE)
 	print("Adjusted position: %s" % position)
 
 # Declare member variables here. Examples:
