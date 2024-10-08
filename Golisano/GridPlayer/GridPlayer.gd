@@ -8,12 +8,9 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
-#onready var ray = $RayCast2D
-
 func _ready():
 	animationTree.active = true
 	property_list_changed_notify()
-#	position = position.snapped(Vector2.ONE * Properties.TILE_SIZE)
 
 func _process(delta):
 	try_start_moving()
@@ -54,36 +51,29 @@ func try_start_moving():
 	else:
 		set_animation_idle()	
 
-# Determines whether an object can be pushed
-func is_object_pushable(obj: Object) -> bool:
-	return obj is AxisAlignedBody2D
-
 # Attempts to push all objects lined up in the direction of a motion vector
 func try_push(motion_vector: Vector2):
-	if not ray.is_colliding():
+	if not rays.has_any_collisions():
 		return
+	
+	var objects = rays.get_all_colliding_objects()
+	var to_push = []
+	
+	while objects.size() != 0:
+		var obj = objects[0]
+		objects.remove(0)
 		
-	if not is_object_pushable(ray.get_collider()):
-		return
-		
-	var obj = ray.get_collider() as AxisAlignedBody2D
-	obj.cast_ray(motion_vector)
-	
-	# Objects to push
-	var objects = [obj]
-	
-	while (obj.is_ray_colliding()):
-	
-		var collider = obj.ray.get_collider()
-		if not is_object_pushable(collider):
+		var aab = obj as AxisAlignedBody2D
+		if aab == null:
 			return
-		obj = collider as AxisAlignedBody2D
-		obj.cast_ray(motion_vector)
-		objects.append(obj)
+			
+		to_push.append(aab)
+		aab.rays.cast_all_by_motion(motion_vector)
+		objects.append_array(aab.rays.get_all_colliding_objects())
 	
-	for i in range(objects.size() - 1, -1, -1):
-		move(objects[i], motion_vector)
-		
+	for t in to_push:
+		move(t, motion_vector)
+	
 	start_moving(motion_vector)
 
 # Move any kinematic body according to a motion vector
@@ -95,10 +85,8 @@ func move(object: KinematicBody2D, motion_vector: Vector2) -> Tween:
 
 # Determines whether the player can move according to a motion vector
 func can_move(motion_vector: Vector2) -> bool:
-	cast_ray(motion_vector)
-#	ray.set_cast_to(motion_vector)
-#	ray.force_raycast_update()
-	return not ray.is_colliding()
+	rays.cast_all_by_motion(motion_vector)
+	return not rays.has_any_collisions()
 
 # Start animating the player movement
 func start_moving(motion_vector: Vector2):

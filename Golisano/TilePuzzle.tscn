@@ -57,6 +57,3 @@ position = Vector2( 64, 64 )
 
 [node name="2" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 80, 64 )
-
-[node name="3" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 96, 64 )

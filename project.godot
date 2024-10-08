@@ -29,12 +29,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/Player.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "Ray2D",
 "language": "GDScript",
 "path": "res://Golisano/RayMatrix2D/Ray2D.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "RayMatrix2D",
 "language": "GDScript",
 "path": "res://Golisano/RayMatrix2D/RayMatrix2D.gd"
