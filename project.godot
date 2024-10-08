@@ -28,12 +28,24 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
+}, {
+"base": "Node",
+"class": "Ray2D",
+"language": "GDScript",
+"path": "res://Golisano/RayMatrix2D/Ray2D.gd"
+}, {
+"base": "Node",
+"class": "RayMatrix2D",
+"language": "GDScript",
+"path": "res://Golisano/RayMatrix2D/RayMatrix2D.gd"
 } ]
 _global_script_class_icons={
 "AxisAlignedBody2D": "",
 "Box": "",
 "Moveable": "",
-"Player": ""
+"Player": "",
+"Ray2D": "",
+"RayMatrix2D": ""
 }
 
 [application]
