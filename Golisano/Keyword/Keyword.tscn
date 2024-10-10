@@ -14,6 +14,11 @@ vframes = 5
 frame = 28
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_right = 52.0
+margin_right = 16.0
 margin_bottom = 15.0
-text = "sample"
+text = "1234213"
+scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 16.0
+margin_bottom = 16.0
