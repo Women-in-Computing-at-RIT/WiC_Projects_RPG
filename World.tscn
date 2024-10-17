@@ -190,6 +190,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 extents = Vector2( 17, 12 )
 
 [node name="World" type="Node2D"]
+position = Vector2( -1, 0 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 160, 90 )

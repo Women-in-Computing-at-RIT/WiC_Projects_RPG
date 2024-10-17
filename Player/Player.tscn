@@ -465,6 +465,7 @@ parameters/Idle/blend_position = Vector2( -0.331023, 0.586207 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="Position2D" type="Position2D" parent="."]
+rotation = 1.5708
 
 [node name="AxeHitBox" parent="Position2D" instance=ExtResource( 4 )]
 position = Vector2( 5, 0 )
