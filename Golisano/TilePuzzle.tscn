@@ -52,12 +52,30 @@ tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 1, 65539, 0, 1, 65540, 0, 1, 65
 [node name="GridPlayer" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 32, 64 )
 
-[node name="1" parent="YSort" instance=ExtResource( 2 )]
+[node name="public" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 64, 64 )
+collider_size = Vector2( 2, 1 )
+labelText = "public"
 
-[node name="2" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 80, 64 )
-
-[node name="3" parent="YSort" instance=ExtResource( 2 )]
+[node name="static" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 96, 64 )
-collider_size = Vector2( 2, 3 )
+collider_size = Vector2( 2, 1 )
+labelText = "static"
+
+[node name="void" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 128, 64 )
+collider_size = Vector2( 2, 1 )
+labelText = "void"
+
+[node name="main" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 160, 64 )
+collider_size = Vector2( 2, 1 )
+labelText = "main"
+
+[node name="open_paren" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 192, 64 )
+labelText = "("
+
+[node name="close_paren" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 208, 64 )
+labelText = ")"

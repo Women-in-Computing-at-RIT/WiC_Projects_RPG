@@ -23,11 +23,12 @@ margin_right = 16.0
 margin_bottom = 16.0
 
 [node name="Label" type="Label" parent="."]
-margin_right = 200.0
-margin_bottom = 200.0
-rect_scale = Vector2( 0.08, 0.08 )
+margin_right = 160.0
+margin_bottom = 160.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
 custom_fonts/font = SubResource( 1 )
-text = "asdf"
+text = "a"
 align = 1
 valign = 1
