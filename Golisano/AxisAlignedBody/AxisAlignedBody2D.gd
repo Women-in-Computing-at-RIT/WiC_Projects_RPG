@@ -12,6 +12,7 @@ func _ready():
 	position = position.snapped(Vector2.ONE * Properties.TILE_SIZE)
 	add_collider()
 	add_rays()
+	property_list_changed_notify()
 
 func has_collider() -> bool:
 	return collider_size.x != 0 and collider_size.y != 0
