@@ -5,6 +5,8 @@ class_name AxisAlignedBody2D
 export var collider_size = Vector2.ONE
 export var is_movable = true
 
+var collider
+
 # List of raycasts - one for each 'cell'
 var rays: RayMatrix2D
 
@@ -25,14 +27,20 @@ func add_rays():
 	self.rays.add_excluded_object(self)
 	add_child(self.rays)
 
+func create_shape():
+	var rect = RectangleShape2D.new()
+	rect.extents = collider_size * (Properties.TILE_SIZE / 2)
+	return rect
+	
+func create_collider():
+	var c = CollisionShape2D.new()
+	var rect = create_shape()
+	c.shape = rect
+	c.position = rect.extents
+	return c 
+
 func add_collider():
 	if not has_collider():
 		return
 		
-	var collider = CollisionShape2D.new()
-	var rect = RectangleShape2D.new()
-	rect.extents = collider_size * (Properties.TILE_SIZE / 2)
-	collider.shape = rect
-	
-	collider.position = rect.extents
-	add_child(collider)
+	add_child(create_collider())
