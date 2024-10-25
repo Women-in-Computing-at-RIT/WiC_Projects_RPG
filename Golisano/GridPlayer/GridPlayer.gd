@@ -66,7 +66,7 @@ func try_push(motion_vector: Vector2):
 		var aab = obj as AxisAlignedBody2D
 		if aab == null:
 			return
-			
+
 		to_push.append(aab)
 		aab.rays.cast_all_by_motion(motion_vector)
 		objects.append_array(aab.rays.get_all_colliding_objects())
