@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bush/Bush.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Sprites/Tilesets/Tilled_Dirt_v2.png" type="Texture" id=8]
 [ext_resource path="res://Tree/Tree.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Player/Widget.tscn" type="PackedScene" id=10]
+[ext_resource path="res://RedPressurePlate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://World.gd" type="Script" id=12]
+[ext_resource path="res://Sprites/light etxture.webp" type="Texture" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Hills.png 0"
@@ -234,7 +237,10 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 17, 12 )
 
+[sub_resource type="RectangleShape2D" id=21]
+
 [node name="World" type="Node2D"]
+script = ExtResource( 12 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 160, 90 )
@@ -254,7 +260,7 @@ tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 131073, 0, 196608, 131074, 0, 196609, 131075, 0, 6, 131076, 0, 5, 131077, 0, 196609, 131078, 0, 196609, 131079, 0, 7, 196611, 0, 131072, 196612, 0, 131074, 196615, 0, 196612, 196616, 0, 196609, 196617, 0, 6, 196618, 0, 1, 196619, 0, 2, 262153, 0, 65536, 262154, 0, 65537, 262155, 0, 131077, 262156, 0, 2, 327688, 0, 0, 327689, 0, 131078, 327690, 0, 65537, 327691, 0, 65537, 327692, 0, 65538, 393224, 0, 131072, 393225, 0, 65542, 393226, 0, 65537, 393227, 0, 65537, 393228, 0, 65538, 458761, 0, 131072, 458762, 0, 131073, 458763, 0, 131073, 458764, 0, 131074 )
+tile_data = PoolIntArray( 131073, 0, 196608, 131074, 0, 196609, 131075, 0, 6, 131076, 0, 5, 131077, 0, 196609, 131078, 0, 196609, 131079, 0, 7, 196611, 0, 131072, 196612, 0, 131074, 196615, 0, 196612, 196616, 0, 196609, 196617, 0, 6, 196618, 0, 1, 196619, 0, 2, 262153, 0, 65536, 262154, 0, 65537, 262155, 0, 131077, 262156, 0, 2, 327680, 0, 196611, 327688, 0, 0, 327689, 0, 131078, 327690, 0, 65537, 327691, 0, 65537, 327692, 0, 65538, 393224, 0, 131072, 393225, 0, 65542, 393226, 0, 65537, 393227, 0, 65537, 393228, 0, 65538, 458761, 0, 131072, 458762, 0, 131073, 458763, 0, 131073, 458764, 0, 131074 )
 
 [node name="FenceTilemap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -272,13 +278,24 @@ polygon = PoolVector2Array( 35, 0, 34, 16, 2, 19, 2, 52, 32, 53, 33, 83, 48, 84,
 position = Vector2( 96, 67 )
 shape = SubResource( 20 )
 
+[node name="RedPressurePlate" parent="." instance=ExtResource( 11 )]
+position = Vector2( 188, 55 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 32, 28 )
 
-[node name="Box" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 136, 139 )
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+visible = false
+current = true
+zoom = Vector2( 0.8, 0.8 )
+
+[node name="Light2D" type="Light2D" parent="YSort/Player"]
+visible = false
+scale = Vector2( 0.479688, 0.51875 )
+texture = ExtResource( 13 )
+range_z_min = -1166
 
 [node name="Chicken_house" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 149, 24 )
@@ -318,4 +335,26 @@ position = Vector2( 140, 104 )
 position = Vector2( 112, 115 )
 
 [node name="Widget" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 187, 80 )
+position = Vector2( 186, 81 )
+
+[node name="Bush" parent="." instance=ExtResource( 2 )]
+position = Vector2( 206, 58 )
+
+[node name="Box2" parent="Bush" instance=ExtResource( 3 )]
+position = Vector2( -79, 87 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0, 0, 0, 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( -58.5978, -24.3345 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2( 0.0523739, 0.269897 )
+shape = SubResource( 21 )
+
+[connection signal="body_shape_entered" from="RedPressurePlate" to="." method="_on_RedPressurePlate_body_shape_entered"]
+[connection signal="body_shape_exited" from="RedPressurePlate" to="." method="_on_RedPressurePlate_body_shape_exited"]

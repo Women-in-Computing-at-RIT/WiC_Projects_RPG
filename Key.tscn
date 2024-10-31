@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Objects/Basic_tools_and_meterials.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.0
+
+[node name="Key" type="Area2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 410, 168 )
+scale = Vector2( 0.785714, 0.8125 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 17, 0, 14, 16.6267 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 410, 168 )
+shape = SubResource( 1 )

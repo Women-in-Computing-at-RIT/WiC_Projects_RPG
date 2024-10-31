@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="WiC_Projects_RPG"
-run/main_scene="res://World.tscn"
+run/main_scene="res://MazeTest.tscn"
 
 [display]
 
