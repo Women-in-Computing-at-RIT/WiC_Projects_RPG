@@ -237,6 +237,7 @@ extents = Vector2( 17, 12 )
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
+visible = false
 position = Vector2( 160, 90 )
 texture = ExtResource( 5 )
 region_enabled = true
@@ -244,12 +245,14 @@ region_rect = Rect2( 0, 0, 320, 180 )
 region_filter_clip = true
 
 [node name="HillsTilemap" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 2, 0, 0, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 2, 65536, 0, 0, 65537, 0, 1, 65538, 0, 131078, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 65537, 65542, 0, 131077, 65543, 0, 1, 65544, 0, 1, 65545, 0, 1, 65546, 0, 1, 65547, 0, 1, 65548, 0, 1, 65549, 0, 2, 65552, 0, 0, 65553, 0, 2, 131072, 0, 65536, 131073, 0, 65537, 131074, 0, 65537, 131075, 0, 65537, 131076, 0, 65537, 131077, 0, 65537, 131078, 0, 65537, 131079, 0, 65537, 131080, 0, 65537, 131081, 0, 65537, 131082, 0, 65537, 131083, 0, 65537, 131084, 0, 65537, 131085, 0, 65538, 131088, 0, 65536, 131089, 0, 65538, 196608, 0, 131072, 196609, 0, 131073, 196610, 0, 65542, 196611, 0, 65537, 196612, 0, 65541, 196613, 0, 131073, 196614, 0, 131073, 196615, 0, 65542, 196616, 0, 65537, 196617, 0, 65537, 196618, 0, 65537, 196619, 0, 65537, 196620, 0, 65537, 196621, 0, 65538, 196624, 0, 131072, 196625, 0, 131074, 262146, 0, 65536, 262147, 0, 65537, 262148, 0, 65538, 262151, 0, 65536, 262152, 0, 65537, 262153, 0, 65537, 262154, 0, 65537, 262155, 0, 65537, 262156, 0, 65541, 262157, 0, 131074, 327682, 0, 131072, 327683, 0, 65542, 327684, 0, 131077, 327685, 0, 1, 327686, 0, 1, 327687, 0, 131078, 327688, 0, 65537, 327689, 0, 65537, 327690, 0, 65537, 327691, 0, 65537, 327692, 0, 65538, 393219, 0, 131072, 393220, 0, 131073, 393221, 0, 65542, 393222, 0, 65537, 393223, 0, 65537, 393224, 0, 65537, 393225, 0, 65537, 393226, 0, 65537, 393227, 0, 65537, 393228, 0, 131077, 393229, 0, 2, 393233, 0, 0, 393234, 0, 2, 458757, 0, 65536, 458758, 0, 65537, 458759, 0, 65537, 458760, 0, 65537, 458761, 0, 65537, 458762, 0, 65537, 458763, 0, 65537, 458764, 0, 65537, 458765, 0, 65538, 458769, 0, 131072, 458770, 0, 131074, 524293, 0, 131072, 524294, 0, 131073, 524295, 0, 65542, 524296, 0, 65537, 524297, 0, 65541, 524298, 0, 131073, 524299, 0, 131073, 524300, 0, 131073, 524301, 0, 131074, 589831, 0, 65536, 589832, 0, 65541, 589833, 0, 131074, 655367, 0, 131072, 655368, 0, 131074 )
 
 [node name="DirtTilemap" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
@@ -266,7 +269,8 @@ tile_data = PoolIntArray( 262152, 0, 1, 262153, 0, 196611, 262155, 0, 196609, 26
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 35, 0, 34, 16, 2, 19, 2, 52, 32, 53, 33, 83, 48, 84, 50, 101, 81, 102, 82, 132, 114, 133, 115, 165, 141, 165, 142, 152, 157, 150, 158, 132, 221, 131, 221, 98, 206, 97, 206, 71, 222, 70, 220, 17, 109, 17, 108, 3, 40, 2, 41, -3, 323, -4, 324, 183, -3, 183, -2, -2 )
+position = Vector2( -1, 2 )
+polygon = PoolVector2Array( 35, 0, 34, 16, 33, 83, 28, 145, 80, 149, 115, 165, 141, 165, 181, 161, 229, 132, 230, 102, 233, 72, 233, 5, 108, 3, 40, 2, 41, -3, 323, -4, 324, 183, -3, 184, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 96, 67 )
@@ -278,15 +282,19 @@ shape = SubResource( 20 )
 position = Vector2( 32, 28 )
 
 [node name="Box" parent="YSort" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 136, 139 )
 
 [node name="Chicken_house" parent="YSort" instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 149, 24 )
 
 [node name="Chicken_house2" parent="YSort" instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 65, 18 )
 
 [node name="Bushes" type="YSort" parent="YSort"]
+visible = false
 
 [node name="Bush" parent="YSort/Bushes" instance=ExtResource( 2 )]
 position = Vector2( 104, 32 )
@@ -303,18 +311,23 @@ position = Vector2( 8, 40 )
 [node name="Trees" type="YSort" parent="YSort"]
 
 [node name="Tree" parent="YSort/Trees" instance=ExtResource( 9 )]
+visible = false
 position = Vector2( 120, 12 )
 
 [node name="Tree2" parent="YSort/Trees" instance=ExtResource( 9 )]
+visible = false
 position = Vector2( 87, 99 )
 
 [node name="Tree3" parent="YSort/Trees" instance=ExtResource( 9 )]
+visible = false
 position = Vector2( 192, 33 )
 
 [node name="Tree4" parent="YSort/Trees" instance=ExtResource( 9 )]
+visible = false
 position = Vector2( 140, 104 )
 
 [node name="Tree5" parent="YSort/Trees" instance=ExtResource( 9 )]
+visible = false
 position = Vector2( 112, 115 )
 
 [node name="Widget" parent="YSort" instance=ExtResource( 10 )]
