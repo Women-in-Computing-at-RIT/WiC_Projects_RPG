@@ -6,6 +6,7 @@ export var backgroundColor = Color(0.0, 0.0, 0.0)
 
 onready var background = $ColorRect
 onready var label = $Label
+onready var sprite = $Sprite
 
 var initial_position
 
