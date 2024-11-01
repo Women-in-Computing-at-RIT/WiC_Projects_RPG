@@ -1,0 +1,342 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://Mechanics/GridPhysics/GridPlayer/GridPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Characters/Basic Charakter Spritesheet.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=36]
+resource_name = "Axe Down"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "axe_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "Axe Left"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "axe_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "Axe Right"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "axe_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "Axe Up"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "axe_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "Idle Down"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "Idle Left"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 8, 9 ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "Idle Right"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 12, 13 ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "Idle Up"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+
+[sub_resource type="Animation" id=44]
+length = 0.001
+
+[sub_resource type="Animation" id=45]
+resource_name = "Run Down"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 0 ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "Run Left"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 8 ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "Run Right"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 12 ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "Run Up"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 4 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=49]
+animation = "Axe Left"
+
+[sub_resource type="AnimationNodeAnimation" id=50]
+animation = "Axe Down"
+
+[sub_resource type="AnimationNodeAnimation" id=51]
+animation = "Axe Right"
+
+[sub_resource type="AnimationNodeAnimation" id=52]
+animation = "Axe Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=32]
+blend_point_0/node = SubResource( 49 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 50 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 51 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 52 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=53]
+animation = "Idle Left"
+
+[sub_resource type="AnimationNodeAnimation" id=54]
+animation = "Idle Down"
+
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "Idle Right"
+
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "Idle Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=17]
+blend_point_0/node = SubResource( 53 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 54 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 55 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 56 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "Run Left"
+
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "Run Down"
+
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "Run Right"
+
+[sub_resource type="AnimationNodeAnimation" id=60]
+animation = "Run Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=21]
+blend_point_0/node = SubResource( 57 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 58 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 59 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 60 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachine" id=61]
+states/Axe/node = SubResource( 32 )
+states/Axe/position = Vector2( 237, 169 )
+states/Idle/node = SubResource( 17 )
+states/Idle/position = Vector2( 237, 55 )
+states/Run/node = SubResource( 21 )
+states/Run/position = Vector2( 382, 55 )
+transitions = [ "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Axe", "Idle", SubResource( 33 ), "Idle", "Axe", SubResource( 34 ) ]
+start_node = "Idle"
+graph_offset = Vector2( 2, 17 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=62]
+
+[node name="GridPlayer" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="DeltaPos" type="Tween" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+texture = ExtResource( 3 )
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Axe Down" = SubResource( 36 )
+"anims/Axe Left" = SubResource( 37 )
+"anims/Axe Right" = SubResource( 38 )
+"anims/Axe Up" = SubResource( 39 )
+"anims/Idle Down" = SubResource( 40 )
+"anims/Idle Left" = SubResource( 41 )
+"anims/Idle Right" = SubResource( 42 )
+"anims/Idle Up" = SubResource( 43 )
+anims/RESET = SubResource( 44 )
+"anims/Run Down" = SubResource( 45 )
+"anims/Run Left" = SubResource( 46 )
+"anims/Run Right" = SubResource( 47 )
+"anims/Run Up" = SubResource( 48 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 61 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 62 )
+parameters/Axe/blend_position = Vector2( 0.407708, 0.25 )
+parameters/Idle/blend_position = Vector2( -0.331023, 0.586207 )
+parameters/Run/blend_position = Vector2( 0, 0 )
+
+[connection signal="tween_completed" from="DeltaPos" to="." method="_on_DeltaPos_tween_completed"]
