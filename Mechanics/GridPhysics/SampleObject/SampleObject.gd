@@ -22,5 +22,6 @@ func _on_color_changed(color):
 # collider size is changed from the editor inspector
 func _on_size_changed(size):
 	._on_size_changed(size)
-	rect._set_size(size * GridProperties.TILE_SIZE)
+	if rect:
+		rect._set_size(size * GridProperties.TILE_SIZE)
 	
