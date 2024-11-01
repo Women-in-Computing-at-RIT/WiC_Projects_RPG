@@ -8,5 +8,6 @@ script = ExtResource( 1 )
 collider_size = Vector2( 2, 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 16.0
-margin_bottom = 16.0
+margin_right = 32.0
+margin_bottom = 64.0
+color = Color( 1, 0, 0.5, 1 )
