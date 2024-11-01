@@ -315,6 +315,7 @@ position = Vector2( 8, 8 )
 texture = ExtResource( 3 )
 hframes = 4
 vframes = 4
+frame = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
 "anims/Axe Down" = SubResource( 36 )
@@ -337,7 +338,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 62 )
 parameters/Axe/blend_position = Vector2( 0.407708, 0.25 )
-parameters/Idle/blend_position = Vector2( -0.331023, 0.586207 )
-parameters/Run/blend_position = Vector2( 0, 0 )
+parameters/Idle/blend_position = Vector2( 1, 0 )
+parameters/Run/blend_position = Vector2( 1, 0 )
 
 [connection signal="tween_completed" from="Body/DeltaPos" to="Body" method="_on_DeltaPos_tween_completed"]

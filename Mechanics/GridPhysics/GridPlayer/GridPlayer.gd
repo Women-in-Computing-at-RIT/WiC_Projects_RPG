@@ -1,4 +1,3 @@
-tool
 extends AxisAlignedBody2D
 
 var animation_speed = 3
@@ -52,6 +51,11 @@ func try_start_moving():
 	else:
 		set_animation_idle()	
 
+func is_in_object(obj: AxisAlignedBody2D):
+	var in_x = obj.position.x <= position.x and position.x < obj.position.x + obj.collider_size.x * GridProperties.TILE_SIZE
+	var in_y = obj.position.y <= position.y and position.y < obj.position.y + obj.collider_size.y * GridProperties.TILE_SIZE
+	return in_x and in_y
+
 # Attempts to push all objects lined up in the direction of a motion vector
 func try_push(motion_vector: Vector2):
 	if not rays.has_any_collisions():
@@ -67,6 +71,9 @@ func try_push(motion_vector: Vector2):
 		var aab = obj as AxisAlignedBody2D
 		if aab == null:
 			return
+			
+		if is_in_object(aab):
+			continue
 
 		to_push.append(aab)
 		aab.rays.cast_all_by_motion(motion_vector)
