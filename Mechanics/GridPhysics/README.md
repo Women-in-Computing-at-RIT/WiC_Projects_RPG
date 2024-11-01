@@ -55,6 +55,7 @@ The following steps will explain how to create a pushable sign node that you can
 	- You should be able to introduce instances of this custom scene to any other scenes, and edit the text displayed for each individual one.
 
 Just in case something went wrong, this is what the scene tree should look like:
+
 ![Scene with root AxisAlignedBody2D node and child Label node](image.png)
 
 And this is the script:
