@@ -10,7 +10,9 @@
 [node name="GridPlayer" parent="YSort" instance=ExtResource( 3 )]
 
 [node name="SampleObject" parent="YSort" instance=ExtResource( 1 )]
+fillColor = Color( 0.447059, 0.0470588, 0.247059, 1 )
 
 [node name="SampleObject2" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 64, 16 )
-collider_size = Vector2( 1, 3 )
+position = Vector2( 80, 32 )
+collider_size = Vector2( 3, 1 )
+fillColor = Color( 0.423529, 0.266667, 0.345098, 1 )

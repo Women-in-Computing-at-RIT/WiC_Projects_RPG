@@ -1,3 +1,4 @@
+tool
 extends AxisAlignedBody2D
 
 var animation_speed = 3
