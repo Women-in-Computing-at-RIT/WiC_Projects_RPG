@@ -5,6 +5,11 @@
 
 [node name="ExampleScene" type="Node2D"]
 
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 262.0
+margin_bottom = 140.0
+color = Color( 0.580392, 0.72549, 0.670588, 1 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="SampleObject" parent="YSort" instance=ExtResource( 1 )]

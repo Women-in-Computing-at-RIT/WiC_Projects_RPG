@@ -47,10 +47,6 @@ _global_script_class_icons={
 config/name="WiC_Projects_RPG"
 run/main_scene="res://World.tscn"
 
-[autoload]
-
-GridProperties="*res://Mechanics/GridPhysics/GridProperties.gd"
-
 [display]
 
 window/size/width=320

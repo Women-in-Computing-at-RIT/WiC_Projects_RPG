@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bush/Bush.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Sprites/Tilesets/Tilled_Dirt_v2.png" type="Texture" id=8]
 [ext_resource path="res://Tree/Tree.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Player/Widget.tscn" type="PackedScene" id=10]
+[ext_resource path="res://GreenPressurePlate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://World.gd" type="Script" id=12]
+[ext_resource path="res://RedPressurePlate.tscn" type="PackedScene" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Hills.png 0"
@@ -235,6 +238,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 extents = Vector2( 17, 12 )
 
 [node name="World" type="Node2D"]
+script = ExtResource( 12 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 160, 90 )
@@ -262,6 +266,12 @@ cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 64, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 262152, 0, 1, 262153, 0, 196611, 262155, 0, 196609, 262156, 0, 3, 327688, 0, 65536, 327692, 0, 65536, 393224, 0, 131073, 393225, 0, 3, 393228, 0, 65536, 458761, 0, 131073, 458762, 0, 196610, 458763, 0, 196610, 458764, 0, 131075 )
+
+[node name="GreenPressurePlate" parent="." instance=ExtResource( 11 )]
+position = Vector2( 65, 68 )
+
+[node name="RedPressurePlate" parent="." instance=ExtResource( 13 )]
+position = Vector2( 166, 56 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -319,3 +329,8 @@ position = Vector2( 112, 115 )
 
 [node name="Widget" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 187, 80 )
+
+[connection signal="body_entered" from="GreenPressurePlate" to="." method="_on_GreenPressurePlate_body_entered"]
+[connection signal="body_exited" from="GreenPressurePlate" to="." method="_on_GreenPressurePlate_body_exited"]
+[connection signal="body_entered" from="RedPressurePlate" to="." method="_on_RedPressurePlate_body_entered"]
+[connection signal="body_exited" from="RedPressurePlate" to="." method="_on_RedPressurePlate_body_exited"]

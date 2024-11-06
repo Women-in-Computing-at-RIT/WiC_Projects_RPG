@@ -3,6 +3,8 @@ extends KinematicBody2D
 
 class_name AxisAlignedBody2D
 
+const GridProperties = preload("res://Mechanics/GridPhysics/GridProperties.gd")
+
 export var collider_size = Vector2.ONE setget _on_size_changed
 export var is_movable = true setget _on_is_movable_changed
 

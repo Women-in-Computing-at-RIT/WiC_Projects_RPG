@@ -1,6 +1,9 @@
 extends Node2D
 class_name RayMatrix2D
 
+const GridProperties = preload("res://Mechanics/GridPhysics/GridProperties.gd")
+
+
 export var size: Vector2 = Vector2.ONE
 var rays = {}
 
