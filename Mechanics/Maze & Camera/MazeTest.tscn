@@ -4,9 +4,9 @@
 [ext_resource path="res://Sprites/Tilesets/Hills.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/light etxture.webp" type="Texture" id=3]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Key.tscn" type="PackedScene" id=5]
-[ext_resource path="res://MazeTest.gd" type="Script" id=6]
-[ext_resource path="res://Key.gd" type="Script" id=7]
+[ext_resource path="res://Mechanics/Maze & Camera/Key.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Mechanics/Maze & Camera/MazeTest.gd" type="Script" id=6]
+[ext_resource path="res://Mechanics/Maze & Camera/Key.gd" type="Script" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Hills.png 0"
@@ -125,7 +125,6 @@ texture = ExtResource( 3 )
 range_z_min = -1166
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [connection signal="body_shape_entered" from="Key" to="." method="_on_Key_body_shape_entered"]

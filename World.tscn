@@ -1,8 +1,7 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bush/Bush.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Box/Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Box/Chicken_house.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Tilesets/Water.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Tilesets/Hills.png" type="Texture" id=6]
@@ -237,8 +236,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 17, 12 )
 
-[sub_resource type="RectangleShape2D" id=21]
-
 [node name="World" type="Node2D"]
 script = ExtResource( 12 )
 
@@ -293,15 +290,8 @@ position = Vector2( 188, 55 )
 position = Vector2( 32, 28 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
-visible = false
 current = true
 zoom = Vector2( 0.8, 0.8 )
-
-[node name="Light2D" type="Light2D" parent="YSort/Player"]
-visible = false
-scale = Vector2( 0.479688, 0.51875 )
-texture = ExtResource( 13 )
-range_z_min = -1166
 
 [node name="Chicken_house" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 149, 24 )
@@ -341,7 +331,6 @@ position = Vector2( 140, 104 )
 position = Vector2( 112, 115 )
 
 [node name="Widget" parent="YSort" instance=ExtResource( 10 )]
-
 position = Vector2( 187, 80 )
 
 [connection signal="body_entered" from="GreenPressurePlate" to="." method="_on_GreenPressurePlate_body_entered"]
