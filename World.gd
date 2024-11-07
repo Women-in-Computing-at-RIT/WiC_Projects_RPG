@@ -1,8 +1,5 @@
 extends Node2D
 
-
-
-
 func _on_RedPressurePlate_body_entered(body):
 	if(body.get_name() == "Player"):
 		$YSort/Widget.visible = false
