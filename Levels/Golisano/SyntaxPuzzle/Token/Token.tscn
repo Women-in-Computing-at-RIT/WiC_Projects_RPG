@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/Golisano/SyntaxPuzzle/Token/Token.gd" type="Script" id=1]
+[ext_resource path="res://Mechanics/GridPhysics/AxisAlignedBody/AxisAlignedBody2D.tscn" type="PackedScene" id=2]
+
+[node name="AxisAlignedBody2D" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+textColor = Color( 1, 1, 1, 1 )
+backgroundColor = Color( 0, 0, 0, 1 )
+text = "a"
+
+[node name="Background" type="ColorRect" parent="." index="0"]
+margin_right = 16.0
+margin_bottom = 16.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="." index="3"]
+margin_right = 160.0
+margin_bottom = 160.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "a"
+align = 1
+valign = 1
