@@ -10,4 +10,4 @@ func _on_Interpreter_area_entered(area):
 	for b in blocks:
 		b.visible = true
 		b.activateCollision()
-	
+
