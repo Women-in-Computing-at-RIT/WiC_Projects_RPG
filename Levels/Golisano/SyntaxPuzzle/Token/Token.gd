@@ -59,5 +59,7 @@ func _on_size_changed(size):
 	
 func resize_elements(newSize):
 	var scaled_size = newSize * Grid.TILE_SIZE
-	label._set_size(scaled_size / label.get_scale())
-	background._set_size(scaled_size)
+	if label:
+		label._set_size(scaled_size / label.get_scale())
+	if background:
+		background._set_size(scaled_size)
