@@ -81,3 +81,5 @@ func axe_state(delta):
 	
 func axe_finished():
 	state = MOVE
+	
+
