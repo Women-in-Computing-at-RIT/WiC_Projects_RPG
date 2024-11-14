@@ -15,10 +15,9 @@ margin_right = 16.0
 margin_bottom = 16.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Label" type="Label" parent="." index="3"]
-margin_right = 160.0
-margin_bottom = 160.0
-rect_scale = Vector2( 0.1, 0.1 )
+[node name="Label" type="Label" parent="." index="1"]
+margin_right = 16.0
+margin_bottom = 16.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "a"

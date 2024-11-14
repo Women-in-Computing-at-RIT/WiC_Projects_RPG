@@ -3,5 +3,5 @@
 [ext_resource path="res://Fonts/RobotoMono-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 80
+size = 8
 font_data = ExtResource( 1 )
