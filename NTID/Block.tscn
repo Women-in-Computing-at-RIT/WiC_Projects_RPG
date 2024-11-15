@@ -1,50 +1,39 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Sprites/Objects/Basic_Furniture.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/NTID/T_frame.png" type="Texture" id=1]
 [ext_resource path="res://NTID/Block.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/NTID/R_frame.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/NTID/I_frame.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 11 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 24, 16, 24 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 24, 16, 24 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 24, 16, 24 )
+extents = Vector2( 8, 8.5 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "choice_1",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "choice_2",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "choice_3",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 10, 18 )
+extents = Vector2( 6, 13 )
 
 [node name="Block" type="StaticBody2D"]
-visible = false
 script = ExtResource( 2 )
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
+position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 disabled = true
 
@@ -55,7 +44,7 @@ animation = "choice_1"
 [node name="choice_area" type="Area2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="choice_area"]
-position = Vector2( 0, -4 )
+position = Vector2( 0, -5 )
 shape = SubResource( 6 )
 
 [connection signal="area_entered" from="choice_area" to="." method="_on_choice_area_area_entered"]
