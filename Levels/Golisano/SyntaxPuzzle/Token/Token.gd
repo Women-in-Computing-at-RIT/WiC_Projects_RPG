@@ -1,4 +1,5 @@
 tool
+class_name Token
 extends AxisAlignedBody2D
 
 const Grid = preload("res://Mechanics/GridPhysics/GridProperties.gd")
@@ -63,3 +64,7 @@ func resize_elements(newSize):
 		label._set_size(scaled_size / label.get_scale())
 	if background:
 		background._set_size(scaled_size)
+
+# Restore the token to its original position
+func reset_position():
+	set_position(initial_position)

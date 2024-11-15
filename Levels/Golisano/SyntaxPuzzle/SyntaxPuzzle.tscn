@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Mechanics/GridPhysics/GridPlayer/GridPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Golisano/SyntaxPuzzle/Token/Token.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Golisano/SyntaxPuzzle/Statement/Statement.tscn" type="PackedScene" id=3]
 
 [node name="SyntaxPuzzle" type="Node2D"]
 
@@ -9,7 +10,16 @@
 
 [node name="GridPlayer" parent="YSort" instance=ExtResource( 1 )]
 
-[node name="AxisAlignedBody2D" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 32, 16 )
+[node name="Statement" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 16, 48 )
+expected_statement = "sample text"
+
+[node name="AxisAlignedBody2D" parent="YSort/Statement" instance=ExtResource( 2 )]
+position = Vector2( 16, -16 )
 collider_size = Vector2( 2, 1 )
-text = "asdf"
+text = "sample"
+
+[node name="AxisAlignedBody2D2" parent="YSort/Statement" instance=ExtResource( 2 )]
+position = Vector2( 48, 0 )
+collider_size = Vector2( 2, 1 )
+text = "text"

@@ -33,19 +33,25 @@ _global_script_classes=[ {
 "class": "RayMatrix2D",
 "language": "GDScript",
 "path": "res://Mechanics/GridPhysics/RayMatrix2D/RayMatrix2D.gd"
+}, {
+"base": "AxisAlignedBody2D",
+"class": "Token",
+"language": "GDScript",
+"path": "res://Levels/Golisano/SyntaxPuzzle/Token/Token.gd"
 } ]
 _global_script_class_icons={
 "AxisAlignedBody2D": "",
 "Box": "",
 "Moveable": "",
 "Ray2D": "",
-"RayMatrix2D": ""
+"RayMatrix2D": "",
+"Token": ""
 }
 
 [application]
 
 config/name="WiC_Projects_RPG"
-run/main_scene="res://World.tscn"
+run/main_scene="res://Levels/Golisano/SyntaxPuzzle/SyntaxPuzzle.tscn"
 
 [display]
 
