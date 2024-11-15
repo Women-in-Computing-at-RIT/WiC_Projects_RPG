@@ -281,11 +281,11 @@ tile_data = PoolIntArray( 262152, 0, 1, 262153, 0, 196611, 262155, 0, 196609, 26
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2( -1, 2 )
-polygon = PoolVector2Array( 35, 0, 34, 16, 33, 83, 28, 145, 80, 149, 115, 165, 141, 165, 181, 161, 229, 132, 230, 102, 233, 72, 233, 5, 108, 3, 40, 2, 41, -3, 323, -4, 324, 183, -3, 184, 0, 1 )
+position = Vector2( 19, 0 )
+polygon = PoolVector2Array( -16, -84, -20, -43, -26, 9, -27, -49, -77, -44, -85, 99, -30, 97, -24, 42, -30, 324, 348, 325, 349, -76, -13, -81, -20, -109, 55, -91, 371, -105, 396, 372, -97, 358, -160, 60, -156, -68, -24, -112 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 94, 85 )
+position = Vector2( 94, 97 )
 shape = SubResource( 20 )
 
 [node name="YSort" type="YSort" parent="."]
