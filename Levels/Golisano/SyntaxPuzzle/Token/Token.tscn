@@ -23,3 +23,12 @@ custom_fonts/font = ExtResource( 3 )
 text = "a"
 align = 1
 valign = 1
+
+[node name="Underline" type="Label" parent="." index="2"]
+margin_top = 5.0
+margin_right = 16.0
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0.94902, 0.109804, 0.266667, 1 )
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
