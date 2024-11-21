@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/Dialogue/dogicapixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/Dialogue/next-indicator.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Dialogue/rpg_box.png" type="Texture" id=3]
+[ext_resource path="res://DialogueControl.gd" type="Script" id=4]
+[ext_resource path="res://DialogueBox.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=21]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=22]
+resource_name = "IDLE"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 231, 37 ), Vector2( 231, 41 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 231, 37 ) ]
+}
+
+[node name="dialogueControl" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+
+[node name="dialogueBox" type="Control" parent="."]
+anchor_left = 4.05
+anchor_top = 4.425
+anchor_right = 4.05
+anchor_bottom = 4.475
+margin_left = -121.0
+margin_top = -45.0
+margin_right = 121.0
+margin_bottom = -1.52588e-05
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="dialogueTexture" type="TextureRect" parent="dialogueBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="dialogueText" type="RichTextLabel" parent="dialogueBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 21 )
+bbcode_enabled = true
+bbcode_text = "Hello WiC! This is some placeholder text"
+text = "Hello WiC! This is some placeholder text"
+
+[node name="nextIndicator" type="Sprite" parent="dialogueBox"]
+position = Vector2( 231, 37 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 2 )
+
+[node name="nextAnimationPlayer" type="AnimationPlayer" parent="dialogueBox/nextIndicator"]
+autoplay = "IDLE"
+anims/IDLE = SubResource( 22 )
+anims/RESET = SubResource( 23 )
+
+[node name="dialogueTween" type="Tween" parent="dialogueBox"]
+
+[connection signal="widget_dialogue_control_signal" from="." to="dialogueBox" method="_on_dialogueControl_widget_dialogue_control_signal"]
+[connection signal="dialogue_complete" from="dialogueBox" to="." method="_on_dialogueBox_dialogue_complete"]
+[connection signal="tween_completed" from="dialogueBox/dialogueTween" to="dialogueBox" method="_on_Tween_tween_completed"]
