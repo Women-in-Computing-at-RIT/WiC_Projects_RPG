@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bush/Bush.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sprites/Tilesets/Tilled_Dirt_v2.png" type="Texture" id=8]
 [ext_resource path="res://Tree/Tree.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Player/Widget.tscn" type="PackedScene" id=10]
+[ext_resource path="res://NPCDialogue.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Hills.png 0"
@@ -264,6 +265,7 @@ format = 1
 tile_data = PoolIntArray( 262152, 0, 1, 262153, 0, 196611, 262155, 0, 196609, 262156, 0, 3, 327688, 0, 65536, 327692, 0, 65536, 393224, 0, 131073, 393225, 0, 3, 393228, 0, 65536, 458761, 0, 131073, 458762, 0, 196610, 458763, 0, 196610, 458764, 0, 131075 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( 35, 0, 34, 16, 2, 19, 2, 52, 32, 53, 33, 83, 48, 84, 50, 101, 81, 102, 82, 132, 114, 133, 115, 165, 141, 165, 142, 152, 157, 150, 158, 132, 221, 131, 221, 98, 206, 97, 206, 71, 222, 70, 220, 17, 109, 17, 108, 3, 40, 2, 41, -3, 323, -4, 324, 183, -3, 183, -2, -2 )
@@ -275,7 +277,7 @@ shape = SubResource( 20 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 32, 28 )
+position = Vector2( 33, 29 )
 
 [node name="Box" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 136, 139 )
@@ -319,3 +321,9 @@ position = Vector2( 112, 115 )
 
 [node name="Widget" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 187, 80 )
+
+[node name="dialogueControl" parent="." instance=ExtResource( 11 )]
+
+[connection signal="widget_dialogue_signal" from="YSort/Widget" to="dialogueControl" method="_on_Widget_widget_dialogue_signal"]
+[connection signal="control_dialogue_complete" from="dialogueControl" to="YSort/Widget" method="_on_dialogueControl_control_dialogue_complete"]
+[connection signal="init_dialogue" from="dialogueControl" to="YSort/Widget" method="_on_dialogueControl_init_dialogue"]

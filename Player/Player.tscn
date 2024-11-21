@@ -1,9 +1,9 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Basic Charakter Spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Characters/Basic Charakter Actions.png" type="Texture" id=3]
-[ext_resource path="res://Player/HitBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/dialogueHitBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 4, 5 )
@@ -416,20 +416,17 @@ graph_offset = Vector2( 2, 17 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
-[sub_resource type="CapsuleShape2D" id=39]
-radius = 7.0
-height = 8.0
-
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 2 )
 hframes = 4
 vframes = 4
+frame = 1
 
 [node name="Action Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 3 )
 hframes = 2
 vframes = 12
@@ -465,11 +462,6 @@ parameters/Idle/blend_position = Vector2( -0.331023, 0.586207 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="Position2D" type="Position2D" parent="."]
+rotation = 1.5708
 
-[node name="AxeHitBox" parent="Position2D" instance=ExtResource( 4 )]
-position = Vector2( 5, 0 )
-
-[node name="CollisionShape2D" parent="Position2D/AxeHitBox" index="0"]
-shape = SubResource( 39 )
-
-[editable path="Position2D/AxeHitBox"]
+[node name="playerDialogueBox" parent="Position2D" instance=ExtResource( 5 )]

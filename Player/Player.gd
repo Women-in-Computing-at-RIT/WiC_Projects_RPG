@@ -7,7 +7,7 @@ const FRICTION = 800
 # For Character Actions
 enum{
 	MOVE,
-	AXE
+	AXE,
 }
 var state = MOVE
 

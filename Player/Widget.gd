@@ -36,3 +36,6 @@ func _ready():
 #		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta) # accounts for frame rate
 #
 #	velocity = move_and_slide(velocity) # auto handles delta 
+
+
+
