@@ -113,9 +113,9 @@ func _physics_process(delta):
 			print("FAIL")
 	
 		# if player exits screen left reset level
-		if player.global_position.x < 0:
-			player_enter = player.global_position.y
-			reset_level();
+	if player.global_position.x < 0:
+		player_enter = player.global_position.y
+		reset_level();
 			
 # Reset current level and set up next level
 # author: Sydney Tsin (sst8237)
