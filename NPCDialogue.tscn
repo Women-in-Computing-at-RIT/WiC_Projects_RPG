@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/Dialogue/dogicapixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/Dialogue/next-indicator.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Dialogue/rpg_box.png" type="Texture" id=3]
 [ext_resource path="res://DialogueControl.gd" type="Script" id=4]
 [ext_resource path="res://DialogueBox.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Custom/widget-icon.PNG" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=21]
 size = 8
@@ -70,10 +71,10 @@ stretch_mode = 1
 [node name="dialogueText" type="RichTextLabel" parent="dialogueBox"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
+margin_left = 54.0
 margin_top = 5.0
 margin_right = -5.0
-margin_bottom = -5.0
+margin_bottom = -4.99998
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 21 )
 bbcode_enabled = true
@@ -91,6 +92,11 @@ anims/IDLE = SubResource( 22 )
 anims/RESET = SubResource( 23 )
 
 [node name="dialogueTween" type="Tween" parent="dialogueBox"]
+
+[node name="widgetIcon" type="Sprite" parent="dialogueBox"]
+position = Vector2( 24, 22 )
+scale = Vector2( 0.44, 0.44 )
+texture = ExtResource( 6 )
 
 [connection signal="widget_dialogue_control_signal" from="." to="dialogueBox" method="_on_dialogueControl_widget_dialogue_control_signal"]
 [connection signal="dialogue_complete" from="dialogueBox" to="." method="_on_dialogueBox_dialogue_complete"]
