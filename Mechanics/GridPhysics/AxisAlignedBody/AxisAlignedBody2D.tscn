@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Mechanics/GridPhysics/AxisAlignedBody/AxisAlignedBody2D.gd" type="Script" id=1]
-
-[node name="AxisAlignedBody2D" type="KinematicBody2D"]
-script = ExtResource( 1 )

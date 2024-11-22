@@ -10,11 +10,6 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
-"class": "AxisAlignedBody2D",
-"language": "GDScript",
-"path": "res://Mechanics/GridPhysics/AxisAlignedBody/AxisAlignedBody2D.gd"
-}, {
-"base": "KinematicBody2D",
 "class": "Box",
 "language": "GDScript",
 "path": "res://Box/Box.gd"
@@ -23,23 +18,10 @@ _global_script_classes=[ {
 "class": "Moveable",
 "language": "GDScript",
 "path": "res://Box/Chicken_house.gd"
-}, {
-"base": "Node2D",
-"class": "Ray2D",
-"language": "GDScript",
-"path": "res://Mechanics/GridPhysics/RayMatrix2D/Ray2D.gd"
-}, {
-"base": "Node2D",
-"class": "RayMatrix2D",
-"language": "GDScript",
-"path": "res://Mechanics/GridPhysics/RayMatrix2D/RayMatrix2D.gd"
 } ]
 _global_script_class_icons={
-"AxisAlignedBody2D": "",
 "Box": "",
-"Moveable": "",
-"Ray2D": "",
-"RayMatrix2D": ""
+"Moveable": ""
 }
 
 [application]
