@@ -39,7 +39,7 @@ disabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
-animation = "choice_1"
+animation = "choice_2"
 
 [node name="choice_area" type="Area2D" parent="."]
 

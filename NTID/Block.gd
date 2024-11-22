@@ -24,7 +24,7 @@ func _physics_process(delta):
 			animated_sprite.play("choice_1")
 		elif block_state == 1:
 			animated_sprite.play("choice_2")
-		else:
+		elif block_state == 2:
 			animated_sprite.play("choice_3")
 
 	
