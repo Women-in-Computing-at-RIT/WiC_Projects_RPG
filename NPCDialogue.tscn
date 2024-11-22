@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Dialogue/rpg_box.png" type="Texture" id=3]
 [ext_resource path="res://DialogueControl.gd" type="Script" id=4]
 [ext_resource path="res://DialogueBox.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/Custom/widget-icon.PNG" type="Texture" id=6]
+[ext_resource path="res://Sprites/Custom/widget-icons-sheet.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=21]
 size = 8
@@ -97,6 +97,7 @@ anims/RESET = SubResource( 23 )
 position = Vector2( 24, 22 )
 scale = Vector2( 0.44, 0.44 )
 texture = ExtResource( 6 )
+hframes = 4
 
 [connection signal="widget_dialogue_control_signal" from="." to="dialogueBox" method="_on_dialogueControl_widget_dialogue_control_signal"]
 [connection signal="dialogue_complete" from="dialogueBox" to="." method="_on_dialogueBox_dialogue_complete"]
