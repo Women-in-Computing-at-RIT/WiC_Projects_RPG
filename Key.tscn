@@ -59,15 +59,17 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 3.30892
+radius = 1.9708
 
 [node name="Key" type="Area2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -2 )
 frames = SubResource( 14 )
-frame = 6
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
 scale = Vector2( -1.24181, -2.64116 )
 shape = SubResource( 1 )
