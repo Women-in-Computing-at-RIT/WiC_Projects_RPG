@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://NTID/Sign1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/NTID/ASL_R.png" type="Texture" id=2]
@@ -6,12 +6,24 @@
 [ext_resource path="res://Sprites/NTID/ASL_W.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/NTID/ASL_T.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/NTID/ASL_B.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/NTID/ASL_E.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/NTID/ASL_G.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "ASL_B",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "ASL_E",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "ASL_G",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -44,7 +56,7 @@ script = ExtResource( 1 )
 position = Vector2( 4, -4 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
-animation = "ASL_T"
+animation = "ASL_E"
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( 4, -4 )

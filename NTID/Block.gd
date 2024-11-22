@@ -19,12 +19,9 @@ func _on_choice_area_area_exited(area):
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select") and block_entered == true:
 		block_state += 1
-		block_state %= 3
-		if block_state == 0:
-			animated_sprite.play("choice_1")
-		elif block_state == 1:
-			animated_sprite.play("choice_2")
-		elif block_state == 2:
-			animated_sprite.play("choice_3")
+		block_state %= 26
+		if block_state >= 0 and block_state <= 25:
+			animated_sprite.play("choice_" + char(65 + block_state))
 
-	
+
+

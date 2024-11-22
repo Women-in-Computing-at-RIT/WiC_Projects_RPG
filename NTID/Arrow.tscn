@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/NTID/left_arrow.png" type="Texture" id=1]
+
+[node name="Arrow" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -1 )
+scale = Vector2( 2, 1.46875 )
+texture = ExtResource( 1 )
